@@ -1,0 +1,27 @@
+---
+- name: add docker group
+  action: group name=docker state=present
+
+- name: install deps
+  action: apt pkg=$item state=present update_cache=yes
+  with_items:
+    - linux-image-extra-3.8.0-19-generic
+    - git
+    - python-pycurl
+  notify: service docker start/enable
+  tags:
+    - aptget
+
+- name: add docker apt key
+  action: apt_key url=https://get.docker.io/gpg state=present
+
+- name: add docker repository
+  action: apt_repository repo='deb http://get.docker.io/ubuntu docker main' state=present update_cache=yes
+
+- name: install docker
+  action: apt pkg=$item state=present update_cache=yes
+  with_items:
+    - lxc-docker
+  notify: service docker start/enable
+  tags:
+    - installdocker

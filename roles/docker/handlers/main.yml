@@ -1,0 +1,3 @@
+---
+- name: service docker start/enable
+  action: service name=docker state=restarted enabled=yes

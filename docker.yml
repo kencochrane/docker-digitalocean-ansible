@@ -1,0 +1,8 @@
+---
+- hosts: all
+  sudo: yes
+  user: root
+  roles:
+    - role: docker
+      tags:
+          - docker
