@@ -8,7 +8,7 @@ Prerequisites
 
 - Ansible installed.
 
-    $ pip install -r requirements
+    $ pip install -r requirements.txt
     
 - Digital Ocean Ubuntu 13.04 64bit Droplet with your SSH key installed
 
