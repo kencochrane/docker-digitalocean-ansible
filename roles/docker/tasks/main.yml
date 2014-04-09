@@ -3,9 +3,14 @@
   action: group name=docker state=present
 
 - name: install deps
-  action: apt pkg=$item state=present update_cache=yes
+  action: apt pkg={{item}} state=present update_cache=yes
   with_items:
-    - linux-image-extra-3.8.0-19-generic
+    - linux-generic
+    - linux-headers-generic
+    - linux-image-generic
+    - python3-distupgrade
+    - ubuntu-release-upgrader-core
+    - linux-image-extra-3.11.0-12-generic
     - git
     - python-pycurl
   notify: service docker start/enable
@@ -19,7 +24,7 @@
   action: apt_repository repo='deb http://get.docker.io/ubuntu docker main' state=present update_cache=yes
 
 - name: install docker
-  action: apt pkg=$item state=present update_cache=yes
+  action: apt pkg={{item}} state=present update_cache=yes
   with_items:
     - lxc-docker
   notify: service docker start/enable

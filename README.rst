@@ -1,6 +1,6 @@
 docker-digitalocean-ansible
 ===========================
-Ansible script for creating the docker image on digital ocean
+Ansible script for creating the ubuntu 13.10 64bit docker image on digital ocean
 
 
 Prerequisites
@@ -10,7 +10,7 @@ Prerequisites
 
     $ pip install -r requirements
     
-- Digital Ocean Ubuntu 13.04 64bit Droplet with your SSH key installed
+- Digital Ocean Ubuntu 13.10 64bit Droplet with your SSH key installed
 
 - Create a file called ```ansible_hosts``` with the ip address of your droplet
 
@@ -27,7 +27,7 @@ Prerequisites
 
 building an image
 -----------------
-1. create a new Ubuntu 13.04 64bit Droplet
+1. create a new Ubuntu 13.10 64bit Droplet
 
 2. get the IP address from the new droplet and add it to the ```~/ansible_hosts``` file. Make sure ```ANSIBLE_HOSTS``` and 'ANSIBLE_HOST_KEY_CHECKING' env variables are set. (see above)
 
@@ -47,7 +47,7 @@ building an image
     
     $ shutdown -H now
     
-7. go into the control panel and create a snapshot of the droplet. label it "Docker-Ubuntu-13.04-x64"
+7. go into the control panel and create a snapshot of the droplet. label it "Docker-Ubuntu-13.10-x64"
 
 8. On the control panel, look at the images, and make sure you replicate them across data centers. you do this by going to the images, find the image you just created and click on the globe icon "Distribute to all regions".
 
