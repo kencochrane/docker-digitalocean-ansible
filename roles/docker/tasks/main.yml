@@ -5,7 +5,7 @@
 - name: install deps
   action: apt pkg=$item state=present update_cache=yes
   with_items:
-    - linux-image-extra-3.8.0-19-generic
+    - linux-image-extra-{{ linux_kernel }}
     - git
     - python-pycurl
   notify: service docker start/enable
